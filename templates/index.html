@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>퇴근타이머</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <h1>Let's go home</h1>
+            <h6>한강물 온도 : {{ river }}</h6>
+            <i class="fa fa-8x fa-clock" ></i><p></p>
+            <div id="countTime" style="font-size : 100px;"></div>
+        </div>
+
+        <!--
+        <div class="test row">
+            <!-- Button trigger modal
+            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal">
+                정치성향 테스트하기
+            </button>
+
+            <!-- Modal
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">좋아하는 색상을 고르세요.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <button type="button" class="btn btn-danger" id="red" onclick="alert('보수입니다.');">빨강</button>
+                            <button type="button" class="btn btn-primary" id="blue" onclick="alert('진보입니다.');">파랑</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+
+
+
+        <div class="col-md-12 row">
+            <div class="col-md-4 box__content__table">
+                <div class="box box__top__border-blue bg-white">
+                <div class="box__header with-border">
+                    <h3 class="box-title">나무위키 최신 업데이트 문서</h3>
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                    {% for key, value in namu_urls.items() %}
+                    <tr>
+                        <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
+                    </tr>
+                    {%  endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="col-md-4 box__content__table">
+                <div class="box box__top__border-green bg-white">
+                <div class="box__header with-border">
+                    <h3 class="box-title">네이버 최신 뉴스</h3>
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                    {% for key, value in naver_urls.items() %}
+                    <tr>
+                        <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
+                    </tr>
+                    {%  endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="col-md-4 box__content__table">
+                <div class="box box__top__border-red bg-white">
+                <div class="box__header with-border">
+                    <h3 class="box-title">DC HIT 갤러리 최신 글</h3>
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                    {% for key, value in dc_urls.items() %}
+                    <tr>
+                        <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
+                    </tr>
+                    {%  endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat">
+            <embed height="200" width="80%" src="http://www.gagalive.kr/livechat1.swf?chatroom=~~~new_gohomegohome"></embed>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="static/js/countTimer.js"></script>
+
+    <script>
+    $(function(){
+        var Now = new Date();
+        var NowTime = Now.getFullYear();
+
+        NowTime += '-' + (Now.getMonth()+1) ;
+        NowTime += '-' + Now.getDate();
+        NowTime += ' 18:00:00';
+
+        $('#countTime').countTime({
+            time:NowTime//기준시간
+        });
+    });
+    </script>
+    </body>
+</html>

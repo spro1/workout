@@ -1,0 +1,192 @@
+.timer {
+    text-align: center;
+}
+
+body {
+    background-color: #ecf0f5;
+    font-family: 'Open Sans', sans-serif, '맑은 고딕';
+    height: calc(100% - 40px);
+}
+
+.bg-aqua {
+    background-color: #00c0ef;
+    color : #fff;
+}
+
+.bg-red {
+    background-color: #dd4b39;
+    color: #fff
+}
+
+.bg-green {
+    background-color: #00a65a;
+    color:#fff
+}
+
+.bg-yellow {
+    background-color : #f39c12;
+    color:#fff;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-gray{
+    background-color: #f0f0f0;
+}
+
+.topbar{
+    background-color: #3c8dbc;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1100;
+
+
+}
+
+.topbar__wrapper{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.topbar__wrapper__a{
+    font-size: 18px;
+    line-height: 50px;
+    color: #fff;
+    margin-left: 30px;
+}
+
+
+.box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.box__top__border-red {
+    border-top : 3px solid #dd4b39;
+}
+
+.box__top__border-green {
+    border-top : 3px solid #00a65a;
+}
+
+.box__top__border-blue{
+    border-top : 3px solid #00c0ef;
+}
+.box__top__border-default {
+    border-top: 3px solid #d2d6de;
+}
+
+/* box header */
+.box__header {
+    color : #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+.box__header.with-border {
+    border-bottom:1px solid #f4f4f4;
+}
+
+.box__header>.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.box__header>h4 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.box__header> .fa,
+.box__header> .giyphicon,
+.box__header> .ion,
+.box__header> .box-title {
+    display: inline-block;
+    font-size: 15px;
+    margin: 0;
+    line-height : 1;
+}
+
+.box__header__top__border {
+    border-top: 2px solid #d8d8d8;
+}
+
+
+.box__content {
+    overflow: hidden;
+}
+
+.box__content.with-padding{
+    padding: 10px;
+}
+
+.box__content-description {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.box__content h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    padding : 0;
+}
+.table{
+    table-layout:fixed;
+}
+
+.table>thead>tr,
+.table>tbody>tr {
+    font-size: 12px;
+}
+
+.table>thead>tr>th {
+    border-bottom: 2px solid #f4f4f4
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container{
+    margin-top: 70px;
+}
+
+.chat{
+    margin-top:30px;
+    text-align: center;
+}
+
+.test{
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+button{
+    margin: auto;
+    display: block;
+}
