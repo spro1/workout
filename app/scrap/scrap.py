@@ -16,6 +16,7 @@ def namu_crawler():
             count += 1
         if len(urls) == 10:
             break
+    response.close()
     return urls
 
 def naver_news_crawler():
@@ -28,6 +29,7 @@ def naver_news_crawler():
         urls[i.text] = i['href']
         if len(urls) == 10:
             break
+    response.close()
     return urls
 
 
@@ -41,6 +43,7 @@ def dc_crawler():
         urls[i.a.text] = "http://gall.dcinside.com"+i.a['href']
         if len(urls) == 10:
             break
+    response.close()
     return urls
 
 def river_temp():

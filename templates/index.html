@@ -17,40 +17,6 @@
             <div id="countTime" style="font-size : 100px;"></div>
         </div>
 
-        <!--
-        <div class="test row">
-            <!-- Button trigger modal
-            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal">
-                정치성향 테스트하기
-            </button>
-
-            <!-- Modal
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">좋아하는 색상을 고르세요.</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <button type="button" class="btn btn-danger" id="red" onclick="alert('보수입니다.');">빨강</button>
-                            <button type="button" class="btn btn-primary" id="blue" onclick="alert('진보입니다.');">파랑</button>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-
-
-
-
         <div class="col-md-12 row">
             <div class="col-md-4 box__content__table">
                 <div class="box box__top__border-blue bg-white">
@@ -120,9 +86,12 @@
         var NowTime = Now.getFullYear();
 
         NowTime += '-' + (Now.getMonth()+1) ;
-        NowTime += '-' + Now.getDate();
+	if (Now.getDate() < 10){
+        	NowTime += '-0' + Now.getDate();
+	}else{
+		NowTime += '-' + Now.getDate();
+	}
         NowTime += ' 18:00:00';
-
         $('#countTime').countTime({
             time:NowTime//기준시간
         });
