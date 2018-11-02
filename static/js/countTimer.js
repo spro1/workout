@@ -96,7 +96,7 @@ name : countTime.js
 				document.getElementById("afterTime").style.display = "block";
 				if(stopFlag == "yes") {
 					document.getElementById("beforeTime").style.color = "#212529";
-					result = "이미 퇴근했습니다.";
+					result = "퇴근했습니다.";
 					ele.empty();
 					ele.append(result);
 					overWorkCalc(0, "");
