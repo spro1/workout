@@ -79,13 +79,7 @@ name : countTime.js
 			now = sec(Now);
 			result = date-now;
 
-<<<<<<< HEAD
-            if(Now.getHours() >= 18 || Now.getHours()<=9) {
-                result = "이미 퇴근했습니다.";
-                ele.empty();
-                ele.append(result);
-=======
-            if(Now.getHours() >= 18 || Now.getHours()<7) {
+            if(Now.getHours() >= 18 || Now.getHours()<8) {
 				stopFlag = sessionStorage.getItem("stop");
 				if(stopFlag == "yes") {
 					document.getElementById("countTime").style.color = "#212529";
@@ -98,16 +92,10 @@ name : countTime.js
 					ele.empty();
                 	ele.append(timeToStr(result));
 				}
->>>>>>> origin/im-jinsu/dev/main
             }else {
                 ele.empty();
                 ele.append(timeToStr(result));
             }
 		}
 	}
-<<<<<<< HEAD
-
 })(jQuery);
-=======
-})(jQuery);
->>>>>>> origin/im-jinsu/dev/main
