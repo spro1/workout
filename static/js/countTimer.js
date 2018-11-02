@@ -11,6 +11,7 @@ name : countTime.js
 
 		// stop flag save in session storage and stop event add
 		sessionStorage.setItem("stop", "no");
+		sessionStorage.setItem("overworkPay", "");
 		document.getElementById("stopButton").addEventListener("click", function (e) {
 			stopFlag = sessionStorage.getItem("stop");
 			if (stopFlag == "yes") {
@@ -73,6 +74,17 @@ name : countTime.js
 			data= '000000000000000'+data;
 			return data.substr(data.length - len, len);
 		}
+		
+		// 시급 계산 : 2018 시급- 7530원
+		function overWorkCalc(flag, result) {
+			if (flag) {
+				var splitTime = result.split(':');
+				overworkTime = (splitTime[0] * 60) + splitTime[1];
+				overworkPay = overworkTime * 125.5;
+				sessionStorage.setItem("overworkPay", overworkPay);
+			}
+			document.getElementById("overworkPay").innerText = sessionStorage.getItem("overworkPay");
+		}
 
 		function timePrint(){
 		    Now = new Date();
@@ -81,18 +93,22 @@ name : countTime.js
 
             if(Now.getHours() >= 18 || Now.getHours()<8) {
 				stopFlag = sessionStorage.getItem("stop");
+				document.getElementById("afterTime").style.display = "block";
 				if(stopFlag == "yes") {
-					document.getElementById("countTime").style.color = "#212529";
+					document.getElementById("beforeTime").style.color = "#212529";
 					result = "이미 퇴근했습니다.";
 					ele.empty();
-                	ele.append(result);
+					ele.append(result);
+					overWorkCalc(0, "");
 				} else {
-					document.getElementById("countTime").style.color = "#dd4b39";
+					document.getElementById("beforeTime").style.color = "#dd4b39";
 					result = now-date;
 					ele.empty();
-                	ele.append(timeToStr(result));
+					ele.append(timeToStr(result));
+					overWorkCalc(1, timeToStr(result));
 				}
             }else {
+				document.getElementById("afterTime").style.display = "none";
                 ele.empty();
                 ele.append(timeToStr(result));
             }
