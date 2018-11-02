@@ -9,6 +9,18 @@ name : countTime.js
 		opt = option;
 		date = strToTime(opt.time);
 
+		// stop flag save in session storage and stop event add
+		sessionStorage.setItem("stop", "no");
+		document.getElementById("stopButton").addEventListener("click", function (e) {
+			stopFlag = sessionStorage.getItem("stop");
+			if (stopFlag == "yes") {
+				sessionStorage.setItem("stop", "no");
+			} else {
+				sessionStorage.setItem("stop", "yes");
+			}
+		});
+		// end
+
 		timePrint();
 
 		setInterval(function(){timePrint();},1000);
@@ -27,7 +39,7 @@ name : countTime.js
 
 			return sec(tmp);
 		}
-
+		
 		function timeToStr(sec){
 
 			str = '';
@@ -67,16 +79,35 @@ name : countTime.js
 			now = sec(Now);
 			result = date-now;
 
+<<<<<<< HEAD
             if(Now.getHours() >= 18 || Now.getHours()<=9) {
                 result = "이미 퇴근했습니다.";
                 ele.empty();
                 ele.append(result);
+=======
+            if(Now.getHours() >= 18 || Now.getHours()<7) {
+				stopFlag = sessionStorage.getItem("stop");
+				if(stopFlag == "yes") {
+					document.getElementById("countTime").style.color = "#212529";
+					result = "이미 퇴근했습니다.";
+					ele.empty();
+                	ele.append(result);
+				} else {
+					document.getElementById("countTime").style.color = "#dd4b39";
+					result = now-date;
+					ele.empty();
+                	ele.append(timeToStr(result));
+				}
+>>>>>>> origin/im-jinsu/dev/main
             }else {
                 ele.empty();
                 ele.append(timeToStr(result));
             }
 		}
-
 	}
+<<<<<<< HEAD
 
 })(jQuery);
+=======
+})(jQuery);
+>>>>>>> origin/im-jinsu/dev/main
