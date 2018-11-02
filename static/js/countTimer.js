@@ -67,7 +67,7 @@ name : countTime.js
 			now = sec(Now);
 			result = date-now;
 
-            if(Now.getHours() >= 18 || Now.getHours()<7) {
+            if(Now.getHours() >= 18 || Now.getHours()<=9) {
                 result = "이미 퇴근했습니다.";
                 ele.empty();
                 ele.append(result);
