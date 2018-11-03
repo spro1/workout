@@ -75,12 +75,13 @@ name : countTime.js
 			return data.substr(data.length - len, len);
 		}
 		
-		// 시급 계산 : 2018 시급- 7530원
+		// 시급 계산 : 2018 시급- 7530원, 야간 1.5배 11295원
+		// 분당 188.25원 초당 3.1375원
 		function overWorkCalc(flag, result) {
 			if (flag) {
-				var splitTime = result.split(':');
-				overworkTime = (splitTime[0] * 60) + splitTime[1];
-				overworkPay = overworkTime * 125.5;
+				//var splitTime = result.split(':');
+				//overworkTime = (splitTime[0] * 60) + splitTime[1];
+				overworkPay = result * 3.1375;
 				sessionStorage.setItem("overworkPay", overworkPay);
 			}
 			document.getElementById("overworkPay").innerText = sessionStorage.getItem("overworkPay");
@@ -105,7 +106,7 @@ name : countTime.js
 					result = now-date;
 					ele.empty();
 					ele.append(timeToStr(result));
-					overWorkCalc(1, timeToStr(result));
+					overWorkCalc(1, result);
 				}
             }else {
 				document.getElementById("afterTime").style.display = "none";
