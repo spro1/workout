@@ -84,7 +84,7 @@ name : countTime.js
 				overworkPay = result * 3.1375;
 				sessionStorage.setItem("overworkPay", overworkPay);
 			}
-			document.getElementById("overworkPay").innerText = sessionStorage.getItem("overworkPay");
+			document.getElementById("overworkPay").innerText = Math.floor(sessionStorage.getItem("overworkPay"));
 		}
 
 		function timePrint(){
