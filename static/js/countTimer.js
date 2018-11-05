@@ -9,15 +9,14 @@ name : countTime.js
 		opt = option;
 		date = strToTime(opt.time);
 
-		// stop flag save in session storage and stop event add
-		sessionStorage.setItem("stop", "no");
-		sessionStorage.setItem("overworkPay", "");
-		document.getElementById("stopButton").addEventListener("click", function (e) {
-			stopFlag = sessionStorage.getItem("stop");
-			if (stopFlag == "yes") {
-				sessionStorage.setItem("stop", "no");
+		// overtimeStop flag save in localstorage and overtimeStop event add
+		localStorage.setItem("overtimePay", "");
+		document.getElementById("overtimeStopButton").addEventListener("click", function (e) {
+			overtimeStopFlag = localStorage.getItem("overtimeStop");
+			if (overtimeStopFlag == "yes") {
+				localStorage.setItem("overtimeStop", "no");
 			} else {
-				sessionStorage.setItem("stop", "yes");
+				localStorage.setItem("overtimeStop", "yes");
 			}
 		});
 		// end
@@ -77,38 +76,40 @@ name : countTime.js
 		
 		// 시급 계산 : 2018 시급- 7530원, 야간 1.5배 11295원
 		// 분당 188.25원 초당 3.1375원
-		function overWorkCalc(flag, result) {
+
+		function overtimeCalc(flag, result) {
 			if (flag) {
-				//var splitTime = result.split(':');
-				//overworkTime = (splitTime[0] * 60) + splitTime[1];
-				overworkPay = result * 3.1375;
-				sessionStorage.setItem("overworkPay", overworkPay);
+				overtimePay = result * 3.1375;
+				localStorage.setItem("overtimePay", overtimePay);
 			}
-			document.getElementById("overworkPay").innerText = Math.floor(sessionStorage.getItem("overworkPay"));
+			document.getElementById("overtimePay").innerText = Math.floor(localStorage.getItem("overtimePay"));
 		}
 
 		function timePrint(){
 		    Now = new Date();
 			now = sec(Now);
 			result = date-now;
+			overtimeStopFlag = localStorage.getItem("overtimeStop");
 
-            if(Now.getHours() >= 18 || Now.getHours()<8) {
-				stopFlag = sessionStorage.getItem("stop");
+            if (Now.getHours() >= 18 || Now.getHours()<8) {
 				document.getElementById("afterTime").style.display = "block";
-				if(stopFlag == "yes") {
+				if(overtimeStopFlag == "yes") {
 					document.getElementById("beforeTime").style.color = "#212529";
 					result = "퇴근했습니다.";
 					ele.empty();
 					ele.append(result);
-					overWorkCalc(0, "");
+					overtimeCalc(0, "");
 				} else {
 					document.getElementById("beforeTime").style.color = "#dd4b39";
 					result = now-date;
 					ele.empty();
 					ele.append(timeToStr(result));
-					overWorkCalc(1, result);
+					overtimeCalc(1, result);
 				}
-            }else {
+            } else {
+				if (overtimeStopFlag == "yes") {
+					localStorage.setItem("overtimeStop", "no");
+				} 
 				document.getElementById("afterTime").style.display = "none";
                 ele.empty();
                 ele.append(timeToStr(result));
