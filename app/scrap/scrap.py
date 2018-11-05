@@ -50,3 +50,14 @@ def river_temp():
     url = "http://hangang.dkserver.wo.tc"
     response = requests.get(url)
     return response.json()["temp"]
+
+
+def youtube_crawler():
+    url = "https://www.youtube.com"
+    response = requests.get(url)
+    body = response.text
+    print (body)
+    soup = BeautifulSoup(body, 'html.parser')
+    for i in soup.findAll('a',{'class':' yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link '}):
+        print (i)
+
