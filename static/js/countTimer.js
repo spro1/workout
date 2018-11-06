@@ -10,7 +10,6 @@ name : countTime.js
 		date = strToTime(opt.time);
 
 		// overtimeStop flag save in localstorage and overtimeStop event add
-		localStorage.setItem("overtimePay", "");
 		document.getElementById("overtimeStopButton").addEventListener("click", function (e) {
 			overtimeStopFlag = localStorage.getItem("overtimeStop");
 			if (overtimeStopFlag == "yes") {
