@@ -1,10 +1,21 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 .timer {
+    padding-top: 60px;
+    padding-bottom: 60px;
     text-align: center;
+    background: #5F4B8B;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+#countTime{
+    font-size: 100px;
 }
 
 body {
-    background-color: #ecf0f5;
-    font-family: 'Open Sans', sans-serif, '맑은 고딕';
+    background-color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
     height: calc(100% - 40px);
 }
 
@@ -71,15 +82,15 @@ body {
 
 
 .box__top__border-red {
-    border-top : 3px solid #dd4b39;
+    border-top : 3px solid #8E3C36;
 }
 
 .box__top__border-green {
-    border-top : 3px solid #00a65a;
+    border-top : 3px solid #C0D725;
 }
 
 .box__top__border-blue{
-    border-top : 3px solid #00c0ef;
+    border-top : 3px solid #6EA2D5;
 }
 .box__top__border-default {
     border-top: 3px solid #d2d6de;
@@ -172,7 +183,6 @@ body {
 }
 
 .container{
-    margin-top: 70px;
     padding-right: 0px;
     padding-left: 0px;
 }
