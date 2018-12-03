@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .selector-toggle > a {
     position: absolute;
     top: 200px;
@@ -57,4 +58,65 @@
 
 #styleSelector.open {
     right: 0;
+=======
+.selector-toggle > a {
+    position: absolute;
+    top: 200px;
+    width: 55px;
+    height: 55px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    background: #00A28A;
+    color: #fff;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    padding: 10px 8px;
+    touch-action: manipulation;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.5;
+    left: -75px;
+    border-right: 0;
+    border-radius: 50% 0 0 50%;
+    content: "\e8c3";
+    position: relative;
+    float: left;
+    line-height: 35px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+
+#styleSelector {
+    min-height: 300px;
+    height: 100%;
+    border: 1px solid #e9e9e9;
+    background: #FFF;
+    position: fixed;
+    margin: 0;
+    padding: 20px;
+    width: 400px;
+    top: 0px;
+    transition: 0.5s;
+    right: -400px;
+    border-left: 2px solid rgba(48,53,73,0.28);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 992px) {
+    #styleSelector { 
+        display: none; 
+    }
+    #countTime{
+        font-size: 80px;
+    }
+    .fa.fa-6x.fa-clock {    
+        display: none; 
+    }
+}
+
+#styleSelector.open {
+    right: 0;
+>>>>>>> 2d59e8dc177bc3601e522e51c4a30e26b37e1ac6
 }

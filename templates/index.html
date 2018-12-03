@@ -47,6 +47,7 @@
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="col-md-4 box__content__table">
                     <div class="box box__top__border-green bg-white">
@@ -65,6 +66,26 @@
                     </div>
                 </div>
                 <div class="col-md-4 box__content__table">
+=======
+                </div>
+                <div class="col-md-4 box__content__table">
+                    <div class="box box__top__border-green bg-white">
+                        <div class="box__header with-border">
+                            <h3 class="box-title">네이버 최신 뉴스</h3>
+                        </div>
+                        <table class="table table-striped">
+                            <tbody>
+                                {% for key, value in naver_urls.items() %}
+                                <tr>
+                                    <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4 box__content__table">
+>>>>>>> 2d59e8dc177bc3601e522e51c4a30e26b37e1ac6
                     <div class="box box__top__border-red bg-white">
                         <div class="box__header with-border">
                             <h3 class="box-title">DC HIT 갤러리 최신 글</h3>
@@ -101,6 +122,10 @@
          </div>
     </footer>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2d59e8dc177bc3601e522e51c4a30e26b37e1ac6
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -110,7 +135,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="static/js/countTimer.js"></script>
     <script src="static/js/pageSet.js"></script>
+<<<<<<< HEAD
     <script src="static/js/snowfall.jquery.js" type="text/javascript"></script>
+=======
+
+>>>>>>> 2d59e8dc177bc3601e522e51c4a30e26b37e1ac6
     <script>
         $(function () {
             var Now = new Date();
@@ -128,6 +157,7 @@
             });
         });
     </script>
+<<<<<<< HEAD
     <script type="text/javascript">
 	$(document).ready(function(){
 		$(document).snowfall({
@@ -141,3 +171,8 @@
 </body>
 
 </html>
+=======
+</body>
+
+</html>
+>>>>>>> 2d59e8dc177bc3601e522e51c4a30e26b37e1ac6
