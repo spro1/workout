@@ -1,6 +1,7 @@
 #styleSelector.open {
     right: 0;
 }
+
 .selector-toggle > a {
     position: absolute;
     top: 200px;
