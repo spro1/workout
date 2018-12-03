@@ -102,7 +102,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="static/js/countTimer.js"></script>
     <script src="static/js/pageSet.js"></script>
-
+    <script src="static/js/snowfall.jquery.js" type="text/javascript"></script>
     <script>
         $(function () {
             var Now = new Date();
@@ -119,6 +119,16 @@
                 time: NowTime//기준시간
             });
         });
+    </script>
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$(document).snowfall({
+			minSize : 5,
+			maxSize : 7,
+			round : true
+		}
+		);
+	});
     </script>
 </body>
 
