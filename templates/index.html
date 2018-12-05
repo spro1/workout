@@ -35,11 +35,11 @@
                 <div class="col-md-4 box__content__table">
                     <div class="box box__top__border-blue bg-white">
                         <div class="box__header with-border">
-                            <h3 class="box-title">나무위키 최신 업데이트 문서</h3>
+                            <h3 class="box-title">Dogdrip 인기 게시물</h3>
                         </div>
                         <table class="table table-striped">
                             <tbody>
-                                {% for key, value in namu_urls.items() %}
+                                {% for key, value in dog_urls.items() %}
                                 <tr>
                                     <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
                                 </tr>
@@ -83,6 +83,40 @@
             </div>
         </div>
         <div id="styleSelector" class="">
+            <div class="workoutTimerSetting">
+                <div class="workoutTimerSetting subject">퇴근 타이머 설정</div>
+                <div class="workoutTimerSetting body">
+                    <div class="form-group">
+                        <label>출근/퇴근 시간 설정</label>
+                        <small class="form-text text-muted">출근 시간</small>
+                        <div class="form-group row">
+                            <select name="select" class="form-control">
+                                <option value="1">0</option>
+                                <option value="2">1</option>
+                                <option value="3">2</option>
+                            </select>
+                            <label> 시 </label>
+                            <select name="select" class="form-control">
+                                <option value="opt1">Select One Value Only</option>
+                                <option value="opt2">Type 2</option>
+                                <option value="opt3">Type 3</option>
+                                <option value="opt4">Type 4</option>
+                                <option value="opt5">Type 5</option>
+                                <option value="opt6">Type 6</option>
+                                <option value="opt7">Type 7</option>
+                                <option value="opt8">Type 8</option>
+                            </select>
+                            <label> 분 </label>
+                        </div>
+                        <input type="text" class="form-control" id="startWork" placeholder="출근시간을 입력하세요">
+                        <input type="text" class="form-control" id="endWork" placeholder="퇴근시간을 입력하세요">
+                        <button type="submit" class="btn btn-primary">설정 적용</button>
+                    </div>
+                </div>
+                <div class="workoutTimerSetting footer">
+
+                </div>
+            </div>
             <div class="selector-toggle"><a id="toggle_click"></a></div>
         </div>
         <!--
@@ -92,13 +126,15 @@
 	-->
     </div>
     <footer>
-       <div class="container">
- 	       <div class="row text-center">
-	            <div class="col-sm-12 divide-xs">
-			    <small> <p>Copyright &copy; 2018-2019 Inmago. All rights reserved.</p></small>
-                  </div>
-          </div>
-         </div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 divide-xs">
+                    <small>
+                        <p>Copyright &copy; 2018-2019 Inmago. All rights reserved.</p>
+                    </small>
+                </div>
+            </div>
+        </div>
     </footer>
 
 
@@ -131,14 +167,14 @@
         });
     </script>
     <script type="text/javascript">
-	$(document).ready(function(){
-		$(document).snowfall({
-			minSize : 5,
-			maxSize : 7,
-			round : true
-		}
-		);
-	});
+        $(document).ready(function () {
+            $(document).snowfall({
+                minSize: 5,
+                maxSize: 7,
+                round: true
+            }
+            );
+        });
     </script>
 </body>
 

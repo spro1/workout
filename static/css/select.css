@@ -4,7 +4,7 @@
 
 .selector-toggle > a {
     position: absolute;
-    top: 200px;
+    top: -800px;
     width: 55px;
     height: 55px;
     display: block;
@@ -57,4 +57,28 @@
     .fa.fa-6x.fa-clock {    
         display: none; 
     }
+}
+
+.workoutTimerSetting.subject {
+    font-size: 25px;
+    color: #5F4B8B;
+}
+
+.workoutTimerSetting.body{
+    background-color: #F6F7FB;
+    height: 1000px;
+    padding: 15px;
+}
+
+
+.workoutTimerSetting input{
+    margin-bottom: 5px;
+}
+
+.workoutTimerSetting select{
+    width: 65px;
+    height: 35px;
+    margin-right: 4px;
+    margin-left: 3px;
+    font-size: 15px;
 }

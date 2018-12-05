@@ -15,7 +15,8 @@ def timer():
     naver_news_urls = data['naver']
     dc_urls = data['dc']
     river = data['river']
-    return render_template('index.html', namu_urls=namu_urls, naver_urls = naver_news_urls, dc_urls = dc_urls, river=river)
+    dogdrip = data['dogdrip']
+    return render_template('index.html', dog_urls=dogdrip, namu_urls=namu_urls, naver_urls = naver_news_urls, dc_urls = dc_urls, river=river)
 
 
 @app.route('/file/upload', methods=['POST'])

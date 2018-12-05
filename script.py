@@ -10,7 +10,9 @@ namu = scrap.namu_crawler()
 naver = scrap.naver_news_crawler()
 dc = scrap.dc_crawler()
 river = scrap.river_temp()
+dogdrip = scrap.dogdrip_crawler()
 
+json_data["dogdrip"] = dogdrip
 json_data["namu"]=namu
 json_data["naver"]=naver
 json_data["dc"]=dc

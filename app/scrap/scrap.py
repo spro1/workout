@@ -61,3 +61,16 @@ def youtube_crawler():
     for i in soup.findAll('a',{'class':' yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link '}):
         print (i)
 
+def dogdrip_crawler():
+    url = "https://www.dogdrip.net/?mid=dogdrip&sort_index=popular"
+    response = requests.get(url)
+    body = response.text
+    soup = BeautifulSoup(body, 'html.parser')
+    urls = {}
+    for i in soup.findAll('a',{'class':'ed link-reset'})[2:]:
+        urls[i.span.text] = i['href']
+        if len(urls) == 10:
+            break
+    response.close()
+    return urls
+
