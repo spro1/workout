@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="2Cfp26H2i9xpeRnUvFo470tGG5UWK9wygd4AlV1XWjE" />
+
+    <title>퇴근타이머-Diary</title>
+    <link rel="shortcut icon" href="static/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="static/ico/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js" integrity="sha256-i2Orhi397HWPn93rsCUTW8HBoso65vY/VNTllm9Kuqo=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/select.css">
+</head>
+
+<body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var sock = io.connect('http://127.0.0.1:8080');
+	sock.on('connect', function(){
+		var connect_string = 'new_connect';
+		sock.send(connect_string);
+	});
+
+	sock.on('message', function(msg){
+		// console.log(type(msg));
+		if(msg.type === 'normal'){
+			$('#messages').append('>> '+msg.message+'<br>');
+		}else{
+			$('#messages').append('<li>' + msg.message + '</li>');
+		}
+		console.log('Received Message : '+msg.type);
+	});
+});
+
+
+</script>
+    <div class="timer">
+        <h1>Let's write poop diary</h1>
+	<div class="checkbox">
+		<form id="poop_value" name="poop_value" method="post" action="/upload_poop">
+			똥 타입 : <input class="input_poop" type="text" name="type"/>
+			<br>
+			<br>
+			평점 :
+			<input type="checkbox" name="result" value="1" onclick="oneCheckbox('result',this)">★</input>
+			<input type="checkbox" name="result" value="2" onclick="oneCheckbox('result',this)">★★</input>
+			<input type="checkbox" name="result" value="3" onclick="oneCheckbox('result',this)">★★★</input>
+			<input type="checkbox" name="result" value="4" onclick="oneCheckbox('result',this)">★★★★</input>
+			<input type="checkbox" name="result" value="5" onclick="oneCheckbox('result',this)">★★★★★</input>
+			<br>
+			<br>
+			한줄 평: <input class="input_poop" type="text" name="comment"/>
+			<br>
+			<br>
+			<input class="btn btn-info insert_button"  type="submit" value="등록"/>
+		</form>
+	</div>
+	
+    </div>
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="col-md-12 row">
+		<div class="box__content__table">
+			<div class="box box__top__border-blue bg-white">
+				<h3 class="box-title">똥싼 일기</h3>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>똥싼자</td>
+						<td>등록 시간</td>
+						<td>똥 종류</td>
+						<td>평점</td>
+						<td>한줄 평</td>	
+					</tr>
+				</thead>
+				<tbody>
+		    		{% for i in data %}
+				<tr>
+					<td>{% set addr = i.addr.split('.') %}{{ addr[0:2]|join(".") }}.＊＊＊.＊＊＊</td>
+					<td>{{i.date}}</td>
+					<td>{{i.type}}</td>
+					<td>
+						{% for i in range(i.result|int) %}
+							★
+						{% endfor %}
+					</td>
+					<td>{{i.comment}}</td>
+				</tr>
+		    		{% endfor %}
+				</tbody>
+			</table>
+		</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 divide-xs">
+                    <small>
+                        <p>Copyright &copy; 2018-2019 Inmago. All rights reserved.</p>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="static/js/snowfall.jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).snowfall({
+                minSize: 5,
+                maxSize: 7,
+                round: true
+            }
+            );
+        });
+    </script>
+    <script type="text/javascript">
+
+    function oneCheckbox(t,a){
+	            var obj = document.getElementsByName(t);
+		    for(var i=0; i<obj.length; i++){
+	                if(obj[i] != a){
+	                    obj[i].checked = false;
+	                }
+	            }
+	        }
+    </script>
+
+
+
+</body>
+
+</html>
+</body>
+
+</html>

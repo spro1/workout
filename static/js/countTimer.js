@@ -7,7 +7,7 @@ name : countTime.js
 	$.fn.countTime = function (option) {
 		ele = $(this);
 		opt = option;
-		date = strToTime(opt.time);
+		date = 64800;
 
 		// overtimeStop flag save in localstorage and overtimeStop event add
 		document.getElementById("overtimeStopButton").addEventListener("click", function (e) {
@@ -23,21 +23,6 @@ name : countTime.js
 		timePrint();
 
 		setInterval(function () { timePrint(); }, 1000);
-
-
-		function strToTime(str) {
-
-			y = parseInt(str.substr(0, 4));
-			m = parseInt(str.substr(5, 2)) - 1;
-			d = parseInt(str.substr(8, 2));
-			h = parseInt(str.substr(11, 2));
-			i = parseInt(str.substr(14, 2));
-			s = parseInt(str.substr(17, 2));
-
-			tmp = new Date(y, m, d, h, i, s);
-
-			return sec(tmp);
-		}
 
 		function timeToStr(sec) {
 
@@ -86,10 +71,10 @@ name : countTime.js
 
 		function timePrint() {
 			Now = new Date();
-			now = sec(Now);
+			now = Now.getHours()*3600 + Now.getMinutes()*60 + Now.getSeconds()
+
 			result = date - now;
 			overtimeStopFlag = localStorage.getItem("overtimeStop");
-
 			if (Now.getHours() >= 18 || Now.getHours() < 8) {
 				document.getElementById("afterTime").style.display = "block";
 				if (overtimeStopFlag == "yes") {

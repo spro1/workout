@@ -4,7 +4,8 @@
     padding-top: 60px;
     padding-bottom: 60px;
     text-align: center;
-    background: #5F4B8B;
+    /*background: #5F4B8B;*/
+    background: #FF6F61;
     margin-bottom: 40px;
     color: #fff;
 }
@@ -206,4 +207,21 @@ body {
 button{
     margin: auto;
     display: block;
+}
+
+.checkbox{
+	padding : 10px;
+	margin: auto;
+}
+
+.input_poop{
+	width : 30%;
+}
+
+.insert_button {
+    width: 35%;
+    height: 46px;
+    margin-top: -6px;
+    margin-left: -2px;
+    border-radius: 0;
 }
