@@ -68,7 +68,7 @@ def dogdrip_crawler():
     soup = BeautifulSoup(body, 'html.parser')
     urls = {}
     for i in soup.findAll('a',{'class':'ed link-reset'})[2:]:
-        urls[i.span.text] = i['href']
+        urls[i.span.text] = "https://www.dogdrip.net"+i['href']
         if len(urls) == 10:
             break
     response.close()
