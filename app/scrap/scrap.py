@@ -56,7 +56,6 @@ def youtube_crawler():
     url = "https://www.youtube.com"
     response = requests.get(url)
     body = response.text
-    print (body)
     soup = BeautifulSoup(body, 'html.parser')
     for i in soup.findAll('a',{'class':' yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link '}):
         print (i)
@@ -72,5 +71,21 @@ def dogdrip_crawler():
         if len(urls) == 10:
             break
     response.close()
+    return urls
+
+def korea_bamboo_crawler():
+    url="https://www1.president.go.kr/petitions/best"
+    response = requests.get(url)
+    body = response.text
+    soup = BeautifulSoup(body, 'html.parser')
+    urls = {}
+    for i in soup.findAll('div',{'class':'bl_subject'}):
+        try:
+            if "?navigation=best" in i.a['href']:
+                urls[i.a.text.replace("제목 ","")] = "https://www1.president.go.kr"+i.a['href']
+            if len(urls) == 10:
+                break
+        except:
+            pass
     return urls
 

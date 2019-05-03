@@ -69,11 +69,11 @@
                 <div class="col-md-4 box__content__table">
                     <div class="box box__top__border-red bg-white">
                         <div class="box__header with-border">
-                            <h3 class="box-title">DC HIT 갤러리 최신 글</h3>
+                            <h3 class="box-title">대한민국 국민청원 TOP</h3>
                         </div>
                         <table class="table table-striped">
                             <tbody>
-                                {% for key, value in dc_urls.items() %}
+                                {% for key, value in korea_urls.items() %}
                                 <tr>
                                     <td style="cursor:pointer;" onClick="window.open('{{ value }}','','');">{{ key }}</td>
                                 </tr>

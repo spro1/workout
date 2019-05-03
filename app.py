@@ -17,12 +17,13 @@ socketio = SocketIO(app)
 def timer():
     json_data = open(json_path).read()
     data = json.loads(json_data)
-    namu_urls = data['namu']
+    #namu_urls = data['namu']
     naver_news_urls = data['naver']
-    dc_urls = data['dc']
+    #dc_urls = data['dc']
     river = data['river']
     dogdrip = data['dogdrip']
-    return render_template('index.html', dog_urls=dogdrip, namu_urls=namu_urls, naver_urls = naver_news_urls, dc_urls = dc_urls, river=river)
+    korea = data['korea']
+    return render_template('index.html', dog_urls=dogdrip, korea_urls=korea,naver_urls = naver_news_urls, river=river)
 
 @app.route('/poop', methods=['GET'])
 def poop():
